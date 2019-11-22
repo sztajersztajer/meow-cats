@@ -1,9 +1,6 @@
 import React from 'react';
 import {RawApp as App} from './App';
-import renderer from 'react-test-renderer';
-import { Provider } from 'react-redux'
-import store from './store'
-
+import {shallow} from 'enzyme';
 
 const defaultProps = {
   addCat: jest.fn(),
@@ -19,11 +16,9 @@ const defaultProps = {
   }]
 };
 
-it('renders the cat container', () => {
-  const component = renderer.create(
-    <Provider store={store}>
-      <App {...defaultProps}/>
-    </Provider>
+it('renders the 2 cat containers', () => {
+  const component = shallow(
+    <App {...defaultProps}/>
   );
-  console.log(component)
+  expect(component.find('Cat').length).toBe(2)
 });
