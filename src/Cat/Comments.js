@@ -2,21 +2,25 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {addComment} from './actions';
 
+function submitForm(props, event) {
+  event.preventDefault()
+
+  props.addComment({
+    catId: props.catId,
+    userName: event.target.userName.value === '' ? 'Anonymous': event.target.userName.value,
+    commentary: event.target.commentary.value
+  });
+
+  document.getElementById("comment-form").reset();
+}
+
 function Comments(props) {
   return (
     <div>
-      <form id="comment-form" onSubmit={event => {
-        event.preventDefault()
-
-        props.addComment({
-          catId: props.catId,
-          userName: event.target.userName.value === '' ? 'Anonymous': event.target.userName.value,
-          commentary: event.target.commentary.value
-        });
-
-        document.getElementById("comment-form").reset();
-      }
-      }>
+      <form 
+        id="comment-form" 
+        onSubmit={event => submitForm(props, event)}
+      >
         <input placeholder="User Name" name="userName" type="text"/>
         <textarea cols="60" placeholder="Commentary" name="commentary"/>
         <button className="styled-button" type="submit">Add Comment</button>
