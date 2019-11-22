@@ -1,4 +1,4 @@
-#MEOW CATS
+# MEOW CATS
 
 Simple prototype that displays random cats which can be liked and commented.
 
