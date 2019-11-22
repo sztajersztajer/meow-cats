@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addComment} from './Cat/actions';
+import {addComment} from './actions';
 
 function Comments(props) {
   return (

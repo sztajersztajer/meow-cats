@@ -1,5 +1,5 @@
 import React from 'react';
-import Cat from './Cat';
+import Cat from './Cat/Cat';
 import {connect} from 'react-redux';
 import {addCat} from './Cat/actions';
 import './App.css';

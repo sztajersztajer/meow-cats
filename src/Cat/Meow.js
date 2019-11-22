@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addMeow} from './Cat/actions';
+import {addMeow} from './actions';
 
 function Meow(props) {
   return (
